@@ -1,0 +1,15 @@
+data:
+  train_csv: "data/processed/train.csv"
+  text_column: "text"
+  target_column: "rating"
+
+tfidf:
+  max_features: 5000
+  ngram_range: [1, 1]  # unigrams
+
+random_forest:
+  n_estimators: 100
+  random_state: 42
+
+model:
+  save_path: "models/random_forest.pkl"

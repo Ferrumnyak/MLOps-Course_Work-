@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+
+# Data
+data/raw/
+data/processed/*.csv
+
+# ML artifacts
+mlruns/
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Docker
+*.tar
+
+# Secrets
+.env
+
+0.26.0
+
+*.safetensors
