@@ -45,7 +45,6 @@ graph TB
     H --> I[Выбор лучшей модели]
     I --> J[Docker контейнеризация]
     J --> K[FastAPI сервис]
-    K --> L[REST API]
     
     M[Конфигурации OmegaConf] --> B
     M --> E
