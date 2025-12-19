@@ -1,5 +1,5 @@
 data:
-  train_csv: "data/processed/train.csv"
+  train_csv: "data/processed/train_lemma.csv"
   text_column: "text"
   target_column: "rating"
 

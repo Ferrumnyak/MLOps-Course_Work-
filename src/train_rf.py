@@ -33,7 +33,7 @@ cfg = load_config("train_rf")
 
 
 # ---------- PATHS ----------
-data_path = Path(cfg.data.train_csv)
+data_path = Path(cfg.data.train_lemma_csv)
 model_path = Path(cfg.model.save_path)
 model_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -42,17 +42,15 @@ meta_path = model_path.with_suffix(".meta.json")
 
 
 # ---------- DATA ----------
-df = pd.read_csv(data_path)
-X = df[cfg.data.text_column].astype(str)
-y = df[cfg.data.target_column].astype(float)
+train_df = pd.read_csv(cfg.data.train_lemma_csv)
+test_df = pd.read_csv(cfg.data.test_lemma_csv)
 
-# split (чтобы метрики были честные)
-test_size = float(getattr(cfg, "split", {}).get("test_size", 0.2)) if hasattr(cfg, "split") else 0.2
-random_state = int(getattr(cfg, "split", {}).get("random_state", 42)) if hasattr(cfg, "split") else 42
+X_train = train_df[cfg.data.text_column].astype(str)
+y_train = train_df[cfg.data.target_column].astype(float)
 
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=test_size, random_state=random_state
-)
+X_test = test_df[cfg.data.text_column].astype(str)
+y_test = test_df[cfg.data.target_column].astype(float)
+
 
 # ---------- PIPELINE ----------
 pipeline = Pipeline([

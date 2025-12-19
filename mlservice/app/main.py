@@ -43,8 +43,8 @@ class ModelManager:
             model_path = os.path.abspath(os.path.join(base_dir, "..", "models", "random_forest.pkl"))  # /app/models/random_forest.pkl
             self.model_path = model_path
 
-            logger.info("🤖 Loading RandomForest model...")
-            logger.info(f"📁 Model path: {model_path}")
+            logger.info("Loading RandomForest model...")
+            logger.info(f"Model path: {model_path}")
 
             if not os.path.exists(model_path):
                 models_dir = os.path.abspath(os.path.join(base_dir, "..", "models"))
@@ -61,10 +61,10 @@ class ModelManager:
                 raise TypeError("Loaded object has no predict() method. Is it a sklearn model/pipeline?")
 
             self.model_loaded = True
-            logger.info("✅ Model loaded successfully")
+            logger.info("Model loaded successfully")
 
         except Exception as e:
-            logger.exception(f"❌ Failed to load model: {e}")
+            logger.exception(f"Failed to load model: {e}")
             self.model_loaded = False
             self.model = None
 
@@ -128,7 +128,7 @@ async def predict(request: PredictionRequest):
     except HTTPException:
         raise
     except Exception as e:
-        logger.exception(f"❌ Prediction error: {e}")
+        logger.exception(f"Prediction error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 
