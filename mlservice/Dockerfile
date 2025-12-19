@@ -11,7 +11,6 @@ COPY app /app/app
 # Кладём модель
 COPY models /app/models
 
-# (не обязательно, но ок)
 RUN mkdir -p /app/logs
 
 EXPOSE 8000
