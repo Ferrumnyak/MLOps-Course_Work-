@@ -5,8 +5,8 @@ stages:
     deps:
     - path: data/raw
       hash: md5
-      md5: 16b0baac4ddcf78d1d3da80827c76227.dir
-      size: 6269578
+      md5: 73db3cf26be5126354e8b5a40df44a5b.dir
+      size: 6264214
       nfiles: 5
     - path: src/prepare_data.py
       hash: md5
@@ -15,6 +15,6 @@ stages:
     outs:
     - path: data/processed
       hash: md5
-      md5: 204ab0c4c02d6e9452dcf89eb66b326c.dir
-      size: 5676225
+      md5: d83d4e80dbfcbe013900098219ec61e6.dir
+      size: 5671092
       nfiles: 2
